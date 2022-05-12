@@ -1,0 +1,198 @@
+.container {
+    height: 100vh;
+    background: #E5E5E5;
+    width: 100%;
+    padding: 30px;
+    position: relative;
+    /* font-family: 'Times New Roman', Times, serif;  */
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    margin-left: .2px;
+}
+
+.dashboard img {
+    height: 250px;
+    position: absolute;
+    top: 0px;
+}
+
+.women img {
+    height: 400px;
+    position: absolute;
+    bottom: 150px;
+    left: 60px;
+    z-index: 1;
+}
+
+.text {
+    font-weight: 100;
+    /* line-height: 23 0px; */
+    margin-top: 50px;
+}
+
+.text h2 {
+    padding-bottom: 30px;
+}
+
+.Btn {
+    padding: 10px 0px;
+    margin-top: 30px;
+}
+
+.nextBtn {
+    background: #54d8d1;
+    border: none;
+    width: 100px;
+    padding: 5px;
+    border-radius: 4px;
+    color: #ffffff;
+}
+
+.wave {
+    position: absolute;
+    bottom: 0%;
+    /* padding: 30px; */
+}
+
+.wave img {
+    width: 100vw;
+}
+
+/* MEDIA QUEIRY  */
+@media screen and (min-width: 1440px) {
+    .dashboard {
+        height: 500px;
+    }
+
+    .women img {
+        height: 600px;
+    }
+
+    .text {
+        margin-top: 120px;
+    }
+
+    .text h2 {
+        font-size: 50px;
+    }
+
+    .text h4 {
+        font-size: 35px;
+    }
+
+    .Btn {
+        margin-top: 50px;
+    }
+
+    .nextBtn {
+        width: 180px;
+        font-size: 30px;
+    }
+}
+
+@media screen and (max-width: 1270px) {
+    .dashboard img {
+        height: 170px;
+        position: absolute;
+        top: 20px;
+    }
+
+    .women img {
+        height: 300px;
+        bottom: 80px;
+    }
+
+    .text {
+        margin-top: 120px;
+    }
+
+    .text h2 {
+        font-size: 26px;
+        padding-bottom: 20px;
+    }
+
+    .text h4 {
+        font-size: 20px;
+    }
+
+    .Btn {
+        margin-top: 30px;
+    }
+
+    .nextBtn {
+        width: 60px;
+    }
+}
+
+@media screen and (max-width: 790px) {
+    .container {
+        padding: 0%;
+    }
+
+    .dashboard img {
+        height: 100px;
+        top: 50px;
+    }
+
+    .women img {
+        height: 200px;
+        bottom: 60px;
+    }
+
+    .text {
+        margin-top: 230px;
+    }
+
+    .text h2 {
+        font-size: 18px;
+        padding-bottom: 10px;
+    }
+
+    .text h4 {
+        font-size: 13px;
+    }
+
+    .Btn {
+        margin-top: 13px;
+    }
+
+    .nextBtn {
+        width: 50px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .container {
+        padding: 0%;
+    }
+
+    .dashboard img {
+        height: 75px;
+        top: 30px;
+    }
+
+    .women img {
+        height: 140px;
+        bottom: 50px;
+    }
+
+    .text {
+        margin-top: 230px;
+    }
+
+    .text h2 {
+        font-size: 18px;
+        padding-bottom: 8px;
+    }
+
+    .text h4 {
+        font-size: 15px;
+    }
+
+    .Btn {
+        margin-top: 10px;
+    }
+
+    .nextBtn {
+        width: 50px;
+    }
+}
