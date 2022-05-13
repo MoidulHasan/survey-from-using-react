@@ -4,9 +4,7 @@ import women from '../../images/women.png';
 import wave from '../../images/footer-wave.svg';
 import dashboard from '../../images/sample-page.png';
 
-const Intro = (props) => {
-
-    const { next } = props;
+const Intro = ({ next }) => {
 
     return (
         <div>

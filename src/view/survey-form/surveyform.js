@@ -204,7 +204,7 @@ const Surveyform = () => {
         );
     } else {
         return (
-            <div className={`${fStyle.surveyForm} pt-5 d-flex align-items-center flex-column`}>
+            <div className={`${fStyle.surveyForm} pt-5 d-flex align-items-center flex-column position-relative`}>
                 <Progress now={progress} />
                 <form className={`container`}>
                     {formContainer}
