@@ -56,14 +56,39 @@ const Surveyform = () => {
             Setstep(updatedStep);
             Setprogress(updatedProgress);
         }
+        else if (step === 7) {
+            if (businessIndustry !== '' && jobTitle !== '' && gender !== '' && age !== '' && interest.length !== 0 && learningMethod !== '') {
+                const formData = {
+                    businessIndustry,
+                    jobTitle,
+                    gender,
+                    age,
+                    interest,
+                    learningMethod
+                }
+                console.log(formData);
+                const requestOptions = {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(formData)
+                };
+                fetch('http://localhost:3000/', requestOptions)
+                    .then(response => response.json())
+                    .then(data => {
+                        console.log(data);
+                    }).catch(err => {
+                        console.log(err);
+                    });
+            }
+        }
         else {
             alert("Please Select Any Option");
-            // console.log("step : ", step, " businessIndustry: ", businessIndustry);
-            // console.log("step : ", step, " jobTitle: ", jobTitle);
-            // console.log("step : ", step, " gender: ", gender);
-            // console.log("step : ", step, " age: ", age);
-            // console.log("step : ", step, " interest: ", interest);
-            // console.log("step : ", step, " learningMethod: ", learningMethod);
+            console.log("step : ", step, " businessIndustry: ", businessIndustry);
+            console.log("step : ", step, " jobTitle: ", jobTitle);
+            console.log("step : ", step, " gender: ", gender);
+            console.log("step : ", step, " age: ", age);
+            console.log("step : ", step, " interest: ", interest);
+            console.log("step : ", step, " learningMethod: ", learningMethod);
         }
 
     };
@@ -77,19 +102,27 @@ const Surveyform = () => {
             Setstep(updatedStep);
             Setprogress(updatedProgress);
         }
-        // if (step > 1) {
-        //     Setprogress(progress - 20);
-        // }
+    };
+
+    const submitHandler = (e) => {
+        e.preventDefault();
+        console.log("step : ", step, " businessIndustry: ", businessIndustry);
+        console.log("step : ", step, " jobTitle: ", jobTitle);
+        console.log("step : ", step, " gender: ", gender);
+        console.log("step : ", step, " age: ", age);
+        console.log("step : ", step, " interest: ", interest);
+        console.log("step : ", step, " learningMethod: ", learningMethod);
     };
 
     // next button text based on step number
     let nextBtnText;
-    if (step !== 7) {
+    if (step <= 6) {
         nextBtnText = "Next";
     }
     else if (step === 7) {
         nextBtnText = "View Dashboard";
     }
+
 
     const questions = [
         {
@@ -218,9 +251,9 @@ const Surveyform = () => {
             <div className={`${fStyle.main} position-relative`}>
                 <div className={`${fStyle.surveyForm} pt-5 d-flex align-items-center flex-column position-relative`}>
                     <Progress now={progress} />
-                    <form className={`container`}>
+                    <div className={`container`}>
                         {formContainer}
-                    </form>
+                    </div>
                     <Navigator next={nextStep} prev={prevStep} nextBtnText={nextBtnText} />
 
                 </div>
