@@ -5,7 +5,7 @@ import fStyles from './footer.module.css';
 
 const Footer = () => {
     return (
-        <div>
+        <div className={`${fStyles.container} border-0`}>
             <div className={fStyles.wave}>
                 <img src={wave} alt="wave" />
             </div>

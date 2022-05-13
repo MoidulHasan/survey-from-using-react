@@ -1,0 +1,54 @@
+.option {
+    height: 70px;
+    border-radius: 5px;
+    box-sizing: border-box;
+    position: absolute;
+    background: #FFFFFF;
+    mix-blend-mode: normal;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 4px;
+    position: relative;
+    cursor: pointer;
+}
+
+
+.customCard {
+    height: 290px;
+    width: 300px;
+    border-radius: 5px;
+    box-sizing: border-box;
+    position: absolute;
+    background: #FFFFFF;
+    mix-blend-mode: normal;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 4px;
+    position: relative;
+    cursor: pointer;
+}
+
+.customImg {
+    width: 200px;
+    height: 200px;
+}
+
+.selected {
+    position: absolute;
+    width: 10.35px;
+    height: 0px;
+    left: 478.07px;
+    top: 427.16px;
+
+    border: 3px solid #FFFFFF;
+    transform: rotate(-47.5deg);
+}
+
+.radioCustom {
+    opacity: 0;
+    position: absolute;
+}
+
+@media screen and (min-height: 850px) {
+    .option {
+        height: 110px;
+    }
+}

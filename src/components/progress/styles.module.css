@@ -1,5 +1,18 @@
 .bar {
     height: 10px;
-    width: 700px;
-    border-radius: 2px;
+    width: 600px;
+    border-radius: 10px;
+    background-color: rgb(225, 220, 210);
+}
+
+@media only screen and (max-width: 700px) {
+    .bar {
+        width: 300px;
+    }
+}
+
+@media only screen and (max-width: 300px) {
+    .bar {
+        width: 150px;
+    }
 }
