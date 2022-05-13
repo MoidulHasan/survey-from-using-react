@@ -50,25 +50,36 @@ const Surveyform = () => {
     // proceed to the next step
     const nextStep = (e) => {
         e.preventDefault();
-        let nextStep = step + 1;
-        if (step < 7) {
-            Setstep(nextStep);
+        if (((step === 1 && businessIndustry !== '') || (step === 2 && jobTitle !== '') || (step === 3 && gender !== '') || (step === 4 && age !== '') || (step === 5 && interest.length !== 0) || (step === 6 && learningMethod !== '')) || step === 0) {
+            const updatedStep = step + 1;
+            const updatedProgress = step * 20;
+            Setstep(updatedStep);
+            Setprogress(updatedProgress);
         }
-        if (step > 0 && step < 6) {
-            Setprogress(progress + 20);
+        else {
+            alert("Please Select Any Option");
+            // console.log("step : ", step, " businessIndustry: ", businessIndustry);
+            // console.log("step : ", step, " jobTitle: ", jobTitle);
+            // console.log("step : ", step, " gender: ", gender);
+            // console.log("step : ", step, " age: ", age);
+            // console.log("step : ", step, " interest: ", interest);
+            // console.log("step : ", step, " learningMethod: ", learningMethod);
         }
+
     };
 
     // proceed to the previous step
     const prevStep = (e) => {
         e.preventDefault();
         if (step > 0) {
-            Setstep(step - 1);
-
+            const updatedStep = step - 1;
+            const updatedProgress = updatedStep * 20;
+            Setstep(updatedStep);
+            Setprogress(updatedProgress);
         }
-        if (step > 1) {
-            Setprogress(progress - 20);
-        }
+        // if (step > 1) {
+        //     Setprogress(progress - 20);
+        // }
     };
 
     // next button text based on step number
