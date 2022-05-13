@@ -2,3 +2,17 @@
     background-color: #F3F6F8;
     height: 100%;
 }
+
+.main {
+    height: 100%;
+}
+
+@media screen and (min-height: 900px) and (min-width: 1400px) {
+    .surveyForm {
+        height: 80%;
+    }
+
+    .main {
+        height: 100vh;
+    }
+}
