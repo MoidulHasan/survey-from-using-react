@@ -7,8 +7,13 @@ import Navigator from '../../components/navigator/navigator';
 import SelectQuestion from '../../components/selectQuestion/selectQuestion';
 import MultiSelect from '../../components/multiSelectQuestion/multiSelect';
 import Summery from '../../components/summery/summery';
+import Swal from 'sweetalert2'
+import withReactContent from 'sweetalert2-react-content'
+
 
 const Surveyform = () => {
+
+
 
     const [step, Setstep] = useState(0);
     const [progress, Setprogress] = useState(0);
@@ -19,11 +24,13 @@ const Surveyform = () => {
     const [interest, Setinterest] = useState([]);
     const [learningMethod, SetlearningMethod] = useState('');
 
+    const SweetAl = withReactContent(Swal)
+
     const onChangeValue = (event) => {
-        // console.log(event.target.name);
+        // //console.log(event.target.name);
         if (event.target.name === 'business-industry') {
             SetbusinessIndustry(event.target.value);
-            // console.log(businessIndustry);
+            // //console.log(businessIndustry);
         }
         else if (event.target.name === 'job-title') {
             SetjobTitle(event.target.value);
@@ -40,7 +47,7 @@ const Surveyform = () => {
             } else {
                 interest.splice(interest.indexOf(event.target.value), 1);
                 Setinterest([...interest]);
-                console.log(interest);
+                //console.log(interest);
             }
         }
         else if (event.target.name === 'learning-method') {
@@ -66,29 +73,24 @@ const Surveyform = () => {
                     interest,
                     learningMethod
                 }
-                console.log(formData);
+                //console.log(formData);
                 const requestOptions = {
                     method: 'POST',
+                    mode: 'cors',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(formData)
+                    body: JSON.stringify({ ...formData })
                 };
-                fetch('http://localhost:3000/', requestOptions)
-                    .then(response => response.json())
-                    .then(data => {
-                        console.log(data);
-                    }).catch(err => {
-                        console.log(err);
-                    });
+                submitHandler(requestOptions);
             }
         }
         else {
             alert("Please Select Any Option");
-            console.log("step : ", step, " businessIndustry: ", businessIndustry);
-            console.log("step : ", step, " jobTitle: ", jobTitle);
-            console.log("step : ", step, " gender: ", gender);
-            console.log("step : ", step, " age: ", age);
-            console.log("step : ", step, " interest: ", interest);
-            console.log("step : ", step, " learningMethod: ", learningMethod);
+            //console.log("step : ", step, " businessIndustry: ", businessIndustry);
+            //console.log("step : ", step, " jobTitle: ", jobTitle);
+            //console.log("step : ", step, " gender: ", gender);
+            //console.log("step : ", step, " age: ", age);
+            //console.log("step : ", step, " interest: ", interest);
+            //console.log("step : ", step, " learningMethod: ", learningMethod);
         }
 
     };
@@ -104,14 +106,31 @@ const Surveyform = () => {
         }
     };
 
-    const submitHandler = (e) => {
-        e.preventDefault();
-        console.log("step : ", step, " businessIndustry: ", businessIndustry);
-        console.log("step : ", step, " jobTitle: ", jobTitle);
-        console.log("step : ", step, " gender: ", gender);
-        console.log("step : ", step, " age: ", age);
-        console.log("step : ", step, " interest: ", interest);
-        console.log("step : ", step, " learningMethod: ", learningMethod);
+    const submitHandler = async (requestOptions) => {
+        // e.preventDefault();
+        //console.log("step : ", step, " businessIndustry: ", businessIndustry);
+        //console.log("step : ", step, " jobTitle: ", jobTitle);
+        //console.log("step : ", step, " gender: ", gender);
+        //console.log("step : ", step, " age: ", age);
+        //console.log("step : ", step, " interest: ", interest);
+        //console.log("step : ", step, " learningMethod: ", learningMethod);
+        const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/app/survey`, requestOptions);
+
+        if (response.statusText === 'Created') {
+            // console.log(response);
+            SweetAl.fire(
+                'Submitted!',
+                'Thank you for your participation!',
+                'success'
+            )
+        }
+        else {
+            SweetAl.fire(
+                'Not Submitted!',
+                'Maybe there are some internal error, please try again!',
+                'error'
+            )
+        }
     };
 
     // next button text based on step number

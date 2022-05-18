@@ -3,7 +3,7 @@ import { ProgressBar } from "react-bootstrap";
 import pStyles from './styles.module.css';
 
 const Progress = (props) => {
-    console.log(props);
+    //console.log(props);
     return (
         <div className="d-flex justify-content-center mb-2 mb-md-5">
             <div className="py-2">
