@@ -32,7 +32,7 @@ const Option = ({ name, value, lavel, selected }) => {
     if (imgsrc) {
         return (
             <label for={value} className="col-xs-12 col-sm-6 col-xl-3  m-0 my-3 d-flex justify-content-center align-items-center">
-                <div className={`${oStyle.customCard} m-1`}>
+                <div className={`${oStyle.customCard} ${select && oStyle.selectedOption} m-1`}>
                     <div className={`card d-flex justify-content-center align-items-center text-center border-0 w-100 p-2`}>
                         <img className={`card-img-top ${oStyle.customImg}`} src={imgsrc} alt={value} />
                         <div className="card-body">
@@ -49,7 +49,7 @@ const Option = ({ name, value, lavel, selected }) => {
     else {
         return (
             <div className={`${genStyle} col-12 col-md-3 d-flex justify-content-center align-items-center text-center border-0 h-100`}>
-                <label for={value} className={`${oStyle.option} m-0 d-flex justify-content-center align-items-center p-1 m-0 w-100 m-2`}>
+                <label for={value} className={`${oStyle.option} ${select && oStyle.selectedOption} m-0 d-flex justify-content-center align-items-center p-1 m-0 w-100 m-2`}>
                     {lavel} {select && <BsFillCheckCircleFill className={`text-info fs-3 position-absolute top-0 end-0 m-1`} />}
                 </label>
                 <input id={value} className={`${oStyle.radioCustom} m-5`} type="radio" value={value} name={name} />

@@ -65,14 +65,32 @@ const Surveyform = () => {
         }
         else if (step === 7) {
             if (businessIndustry !== '' && jobTitle !== '' && gender !== '' && age !== '' && interest.length !== 0 && learningMethod !== '') {
-                const formData = {
-                    businessIndustry,
-                    jobTitle,
-                    gender,
-                    age,
-                    interest,
-                    learningMethod
-                }
+                const formData = [
+                    {
+                        question: "What industry is your business?",
+                        answer: [businessIndustry]
+                    },
+                    {
+                        question: "What is your job title?",
+                        answer: [jobTitle]
+                    },
+                    {
+                        question: "What is your gender?",
+                        answer: [gender]
+                    },
+                    {
+                        question: "What is your age range?",
+                        answer: [age]
+                    },
+                    {
+                        question: "What insights are you interested in?",
+                        answer: [...interest]
+                    },
+                    {
+                        question: "How would you like to learn about these topics?",
+                        answer: [learningMethod]
+                    }
+                ];
                 //console.log(formData);
                 const requestOptions = {
                     method: 'POST',
